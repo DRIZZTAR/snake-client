@@ -12,8 +12,12 @@ const connect = () => {
 
   // Handle events and interactions with the server here
   conn.on("connect", () => {
-    console.log("Connected to the server!");
+    console.log("Successfully connected to game server!");
     // You can start sending/receiving data here
+  });
+
+  conn.on("connect", () => {
+    conn.write("Name: TJS");
   });
 
   // Handle incoming data from the server
