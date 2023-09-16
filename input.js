@@ -1,4 +1,4 @@
-const setupInput = function (conn) {
+const setupInput = function () {
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -6,17 +6,16 @@ const setupInput = function (conn) {
 
   // Handle user input
   stdin.on("data", (key) => {
-    handleUserInput(key, conn);
+    handleUserInput(key);
   });
 
   return stdin;
 };
 
-// Define handleUserInput to handle user input
-const handleUserInput = (key, conn) => {
-  // Your code here to handle user input
-  // For example, you can send commands to the server based on key presses
-  // In this example, we're just checking for Ctrl+C to exit
+// Define handleUserInput to handle key presses
+const handleUserInput = (key) => {
+  // Code here handles user input
+  //we're just checking for Ctrl+C to exit
   if (key === '\u0003') {
     console.log("Exiting game...");
     process.exit();
@@ -24,3 +23,4 @@ const handleUserInput = (key, conn) => {
 };
 
 module.exports = setupInput;
+
