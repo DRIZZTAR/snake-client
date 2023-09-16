@@ -1,4 +1,5 @@
 let connection;
+let currentDirection = null; // Variable to store the current direction
 
 const setupInput = (conn) => {
   connection = conn;
@@ -6,6 +7,9 @@ const setupInput = (conn) => {
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
+
+  // Start the game loop to continuously move the snake
+  startGameLoop();
 
   // Handle user input
   stdin.on("data", (key) => {
@@ -15,25 +19,27 @@ const setupInput = (conn) => {
   return stdin;
 };
 
-// Define handleUserInput to handle key presses
 const handleUserInput = (key) => {
-  // Code here handles user input
   if (key === '\u0003') {
     console.log("Exiting game...");
     process.exit();
   }
-  if (key === 'w') {
-    connection.write('Move: up'); // Send the "Move: up" command to the server
+
+  // Update the direction based on the keys pressed
+  if (key === 'w' && currentDirection !== 'down') {
+    currentDirection = 'up';
   }
-  if (key === 'a') {
-    connection.write('Move: left'); // Send the "Move: left" command to the server
+  if (key === 'a' && currentDirection !== 'right') {
+    currentDirection = 'left';
   }
-  if (key === 's') {
-    connection.write('Move: down'); // Send the "Move: down" command to the server
+  if (key === 's' && currentDirection !== 'up') {
+    currentDirection = 'down';
   }
-  if (key === 'd') {
-    connection.write('Move: right'); // Send the "Move: right" command to the server
+  if (key === 'd' && currentDirection !== 'left') {
+    currentDirection = 'right';
   }
+
+  // Send messages when 'e' or 'q' is pressed
   if (key === 'e') {
     connection.write('Say: "Sssnake"');
   }
@@ -42,6 +48,13 @@ const handleUserInput = (key) => {
   }
 };
 
+// Game loop function to continuously move the snake
+const startGameLoop = () => {
+  setInterval(() => {
+    if (currentDirection) {
+      connection.write(`Move: ${currentDirection}`);
+    }
+  }, 60); // Adjust the interval to control the snake's speed
+};
+
 module.exports = setupInput;
-
-
