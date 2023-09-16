@@ -13,11 +13,13 @@ const connect = () => {
   // Handle events and interactions with the server here
   conn.on("connect", () => {
     console.log("Successfully connected to game server!");
-    // You can start sending/receiving data here
-  });
+    //start sending/receiving data here
+    conn.write("Name: TJS"); // Send the player's name
 
-  conn.on("connect", () => {
-    conn.write("Name: TJS");
+    /* Use setInterval to send "Move: up" every 50ms
+    setInterval(() => {
+      conn.write("Move: up");
+    }, 50);*/
   });
 
   // Handle incoming data from the server
@@ -30,4 +32,3 @@ const connect = () => {
 };
 
 module.exports = { connect };
-
