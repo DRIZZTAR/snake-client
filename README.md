@@ -8,6 +8,7 @@ Before running this client, ensure you have the server-side up and running. You 
 
 ## Final Product
 
+![Screenshot 2](images/screenshot1.png)
 ![Screenshot 1](images/screenshot1.png)
 
 ## Getting Started
