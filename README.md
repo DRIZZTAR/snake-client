@@ -12,7 +12,11 @@ Before running this client, ensure you have the server-side up and running. You 
 
 ## Getting Started
 
-1. Follow the instructions in the snek server repository to set up and run the server-side.
+1. Follow the instructions in the snek server repository to set up and run the server-side. Then in terminal.
+
+   ```
+   npm run play
+   ```
 
 2. Run the development snake client using the following command:
    
