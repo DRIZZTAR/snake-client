@@ -25,3 +25,18 @@ Before running this client, ensure you have the server-side up and running. You 
    ```
 
 Now you're ready to enjoy multiplayer Snake with your friends!
+
+## Controls
+
+- Use the following keys to control the snake:
+
+  - **Arrow Keys**: Move the snake up, down, left, or right.
+  - **W**: Move the snake up.
+  - **A**: Move the snake left.
+  - **S**: Move the snake down.
+  - **D**: Move the snake right.
+  - **E**: Send a message to the server (e.g., "Say: "Sssnake"").
+  - **Q**: Send a message to the server (e.g., "Say: "TOO SLOW!"").
+  - **B**: Send a message to the server (e.g., "Say: "BOO YAAA!"").
+
+- Press `Ctrl + C` to exit the game.
