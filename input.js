@@ -8,7 +8,16 @@ const setupInput = (conn) => {
   stdin.setEncoding("utf8");
   stdin.resume();
 
-  // Start the game loop to continuously move the snake
+  // Game loop function to continuously move the snake
+const startGameLoop = () => {
+  setInterval(() => {
+    if (currentDirection) {
+      connection.write(`Move: ${currentDirection}`);
+    }
+  }, 60); // Adjust the interval to control the snake's speed
+};
+
+  // Call Start the game loop to continuously move the snake for more fun
   startGameLoop();
 
   // Handle user input
@@ -49,15 +58,6 @@ const handleUserInput = (key) => {
   if (key === 'b') {
     connection.write('Say: "BOO YAAA!"');
   }
-};
-
-// Game loop function to continuously move the snake
-const startGameLoop = () => {
-  setInterval(() => {
-    if (currentDirection) {
-      connection.write(`Move: ${currentDirection}`);
-    }
-  }, 60); // Adjust the interval to control the snake's speed
 };
 
 module.exports = setupInput;
