@@ -30,7 +30,6 @@ Now you're ready to enjoy multiplayer Snake with your friends!
 
 - Use the following keys to control the snake:
 
-  - **Arrow Keys**: Move the snake up, down, left, or right.
   - **W**: Move the snake up.
   - **A**: Move the snake left.
   - **S**: Move the snake down.
