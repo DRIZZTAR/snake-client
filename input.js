@@ -26,16 +26,16 @@ const handleUserInput = (key) => {
   }
 
   // Update the direction based on the keys pressed
-  if (key === 'w' && currentDirection !== 'down') {
+  if (key === 'w') {
     currentDirection = 'up';
   }
-  if (key === 'a' && currentDirection !== 'right') {
+  if (key === 'a') {
     currentDirection = 'left';
   }
-  if (key === 's' && currentDirection !== 'up') {
+  if (key === 's') {
     currentDirection = 'down';
   }
-  if (key === 'd' && currentDirection !== 'left') {
+  if (key === 'd') {
     currentDirection = 'right';
   }
 
@@ -45,6 +45,9 @@ const handleUserInput = (key) => {
   }
   if (key === 'q') {
     connection.write('Say: "TOO SLOW!"');
+  }
+  if (key === 'b') {
+    connection.write('Say: "BOO YAAA!"');
   }
 };
 
