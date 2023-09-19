@@ -7,19 +7,7 @@ const setupInput = (conn) => {
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
-
-  // Game loop function to continuously move the snake
-const startGameLoop = () => {
-  setInterval(() => {
-    if (currentDirection) {
-      connection.write(`Move: ${currentDirection}`);
-    }
-  }, 60); // Adjust the interval to control the snake's speed
-};
-
-  // Call Start the game loop to continuously move the snake for more fun
-  startGameLoop();
-
+  
   // Handle user input
   stdin.on("data", (key) => {
     handleUserInput(key);
@@ -48,6 +36,11 @@ const handleUserInput = (key) => {
     currentDirection = 'right';
   }
 
+  // Send direction when arrow keys are pressed
+  if (currentDirection !== null) {
+    connection.write(`Move: ${currentDirection}`);
+  }
+
   // Send messages when 'e' or 'q' is pressed
   if (key === 'e') {
     connection.write('Say: "Sssnake"');
@@ -61,3 +54,4 @@ const handleUserInput = (key) => {
 };
 
 module.exports = setupInput;
+
